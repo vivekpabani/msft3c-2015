@@ -1,0 +1,60 @@
+Your new Robot Overlords have declared that fleshlings’ use of multiple representations for phone numbers is inefficient and will no longer be tolerated.
+
+You have been selected to transition the current database of US phone numbers from its current inconsistent formatting to the new Overlord approved format: +11235550100.
+
+Input description/format
+
+The input will be multiple lines, each containing a suspected phone number. Phone numbers can be provided in any of the following common fleshling formats.
+
+Phone number formats
+
+Name	Examples
+Area code in parenthesis	+1 (123) 555-0100
+1 (123) 555-0100
+(123) 555-0100
+Period separation	+1.123.555.0100
+1.123.555.0100
+123.555.0100
+Dash separation	+1-123-555-0100
+1-123-555-0100
+123-555-0100
+Space separation	+1 123 555 0100
+1 123 555 0100
+123 555 0100
+Vanity Formats
+
+To make matters worse, vain fleshlings will sometimes represent phone numbers with words. These so-called vanity phone numbers start with 1 and the area code (i.e. 1-123-) but after that they will continue with a mix of letters (upper or lower case), numbers and dashes. They are restricted to using exactly 7 letters and numbers (following the 1 and area code), but dashes can be inserted at any point other than immediately after another dash. Fleshlings make things so complicated! 
+
+For your convenience, a representation of a fleshling dialing pad is included below:
+
+1
+ 	2
+A B C	3
+D E F
+4
+G H I	5
+J K L	6
+M N O
+7
+P Q R S	8
+T U V	9
+W X Y Z
+*
+0
+#
+Output description/format
+
+A line for each line of input. If the input contained a recognized format, the output line should be that phone number in the Overlord approved format: +11235550100. If the line is not recognized, the output line should be Fleshling follow-up needed. If the input line is blank, the output line should also be blank.
+
+Example input
+
+1 (123) 555-0100
+1 (123) 555-0100 X123
+555-0100
+1-123-4VANITY
+Example output
+
++11235550100
+Fleshling follow-up needed
+Fleshling follow-up needed
++11234826489
