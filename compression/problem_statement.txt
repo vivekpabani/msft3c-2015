@@ -1,0 +1,40 @@
+File compression is an extremely important problem in computer science. With the release of Xbox One, purchasing and downloading entirely digital games has become a much larger market. However, this new market brings a new host of problems to solve. As you can imagine, having millions of users downloading 50GB games can put a very large strain on networking systems. Because of this, large files are often compressed to a much more manageable size, downloaded, and then uncompressed into the original file. This process can save huge amounts of bandwidth. It also allows the user to download and install the game much faster.
+
+One common form of compression is called run-length encoding. Run-length encoding of text is the process of reducing repeated characters to a smaller, multiple-based representation. For example:
+
+Initial String
+
+eeeeeeeeeeeeeeeeeeejjjghfuuuuuuiiiiiiiiiccc
+
+Run-length encoded string
+
+19e3jghf6u9i3c
+
+The run-length encoded string is less than half the size of the initial string, but contains the same amount of information. This is an example of lossless compression.
+
+Input description/format
+
+Write a program to perform run-length encoding of given strings. The first line of the input file will be a positive integer, N, corresponding to the number of input strings in the file. The next N lines will each contain a string (one per line) to be run-length encoded.
+
+Output description/format
+
+Your output should consist of the number N, followed by a newline, and then the N run-length encoded strings, one per line.
+
+Example input
+
+6
+uuuhiullllMMMMMMMMMNNddd
+abcdefghijk
+WWWWWWWWWWWWWWW
+vvVVvvVV
+bbbbsampleoutputooooooooooPPP
+bbleeu
+Example output
+
+6
+3uhiu4l9M2N3d
+abcdefghijk
+15W
+2v2V2v2V
+4bsampleoutput10o3P
+2bl2eu
