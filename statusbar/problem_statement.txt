@@ -1,0 +1,40 @@
+This problem is motivated by a real tool developed by Microsoft for converting virtual machines from one format to another. The challenge is displaying the progress of various multi-threaded and nested operations during the overall conversion process in a summarized way. Each operation sends notifications, but the order of notifications is not guaranteed.
+
+The format of ‘start’ and ‘end’ notifications is defined below. You have to process the notifications and generate an output, which will represent the summary of the operations completed so far in a chronological and nested fashion.
+
+Clarifications
+
+Each operation sends out a notification when it starts and when it ends, along with start time.
+You need to create a chronological summary of operations from the given notification inputs.
+Operations can be nested. One operation can start a sub-operation and so on.
+The notifications can be out of order.
+In case multiple operations at the same depth begin at the same time, the order of those operations in the output should be determined by the order of which operation’s first notification was received first. In other words, the notification order in the input should be used as a tiebreaker for operations at the same depth that start at the same time.
+Sub-operations can start at a later time than the operation, but that doesn’t impact the start time of the parent operation.
+Each operation has one message. Since we can get two notifications for each operation (one at the start, and one at the end), if the messages differ, you should ignore the message at the end. The inputs here don’t have a case where messages differ.
+Input description/format
+
+The input is one or more rows of comma-separated values. Each row represents one notification. The notification includes the operation's id, its parent operation's id, and its depth from the root. Operations with no parent operation will have a parent operation id of null. For simplicity, start time is represented by integer values.
+
+operationId,parentOperationId,MessageToDisplay,depth,startTime,isFinished
+
+Output description/format
+
+The output should be a list of rows: each row should represent the progress of an operation based on input notifications. The rows are sorted chronologically at each depth. Sub operations should be displayed right after the operation.
+
+[Index of operation] [Message to display] [<(in progress)> or <(done)>]
+
+At each depth, indexing should start at 1. For a nested operation, it will contains the index of its ancestors followed by . all the way to its own index.
+
+Example input
+
+20D,null,Every day you may make progress,0,1,false
+EC0,978,Every step may be fruitful,2,4,false
+68B,20D,The path to our destination is not always a straight one,1,2,false
+978,20D,We turn back,1,3,false
+68B,20D,The path to our destination is not always a straight one,1,2,true
+Example output
+
+1 Every day you may make progress (in progress)
+1.1 The path to our destination is not always a straight one (done)
+1.2 We turn back (in progress)
+1.2.1 Every step may be fruitful (in progress)
