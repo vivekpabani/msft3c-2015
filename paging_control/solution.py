@@ -7,7 +7,7 @@ Problem Definition :
 
 """
 
-__author__ = 'vivek'
+__author__ = 'vivek', 'hina garg'
 import operator
 from collections import defaultdict
 
